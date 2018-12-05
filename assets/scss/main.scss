@@ -1,0 +1,113 @@
+@import "./assets/scss/globals";
+
+html,
+body,
+div,
+section,
+article,
+aside,
+header,
+hgroup,
+footer,
+nav,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+address,
+time,
+span,
+em,
+strong,
+img,
+ol,
+ul,
+li,
+figure,
+canvas,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background: #fff;
+  font-family: Roboto, sans-serif;
+  color: $content_color;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  outline: 0;
+}
+
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: none;
+  box-sizing: content-box;
+}
+
+@mixin selection() {
+  $color: #fff;
+  $background: lighten($purple, 10);
+
+  ::-moz-selection {
+    color: $color;
+    background: $background;
+  }
+  ::selection {
+    color: $color;
+    background: $background;
+  }
+}
+
+@include selection();
+
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
