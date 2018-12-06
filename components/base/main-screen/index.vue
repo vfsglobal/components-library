@@ -1,9 +1,9 @@
 <template>
-    <div class="screen_container">
-        <div class="component_list_wrapper">
+    <div class="screen-container">
+        <div class="component-list-wrapper">
             <searchWrapper/>
         </div>
-        <div class="main_screen">
+        <div class="main-screen">
             <slot />
         </div>
     </div>
@@ -23,14 +23,19 @@ export default {
 <style lang="scss">
 @import "./assets/scss/globals";
 
-.screen_container {
+.screen-container {
   display: flex;
   background: $orange;
   flex: 1;
 
-  > .component_list_wrapper {
+  > .component-list-wrapper {
     width: $layout_left_width;
     padding: 20px 0px;
   }
+
+   > .main-screen {
+      flex: 1;
+      background: rgb(243, 220, 177);
+    }
 }
 </style>

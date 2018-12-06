@@ -26,11 +26,12 @@ header {
   display: flex;
   flex-direction: column;
   background: $blue;
+  padding: 10px 0px;
 
     > .logo {
       width: $layout_left_width;
-      padding: 30px 0px;
       text-align: center;
+      padding: 20px 0px;
     }
 }
 </style>
