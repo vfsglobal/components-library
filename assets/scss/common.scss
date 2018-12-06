@@ -91,7 +91,7 @@ button {
 
 @mixin selection() {
   $color: #fff;
-  $background: lighten($purple, 10);
+  $background: lighten($blue, 10);
 
   ::-moz-selection {
     color: $color;

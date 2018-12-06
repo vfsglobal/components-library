@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'KuoniFeijoa';
+    font-style: normal;
+    font-weight: 400;
+    src: url('KuoniFeijoa-vfs-normal.eot');
+    /* IE9 Compat Modes */
+    src: local('KuoniFeijoa Normal'), local('Helvetica Normal'), url('KuoniFeijoa-vfs-normal.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+ 
+    url('KuoniFeijoa-vfs-normal.woff') format('woff'), /* Modern Browsers */
+    url('KuoniFeijoa-vfs-normal.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('KuoniFeijoa-vfs-normal.svg#Poppins') format('svg');
+    /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'KuoniFeijoa';
+    font-style: normal;
+    font-weight: 700;
+    src: url('KuoniFeijoa-vfs-Bold.eot');
+    /* IE9 Compat Modes */
+    src: local('KuoniFeijoa Bold'), local('KuoniFeijoa-Bold'), url('KuoniFeijoa-vfs-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+   
+    url('KuoniFeijoa-vfs-Bold.woff') format('woff'), /* Modern Browsers */
+    url('KuoniFeijoa-vfs-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('KuoniFeijoa-vfs-Bold.svg#Poppins') format('svg');
+    /* Legacy iOS */
+}

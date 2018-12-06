@@ -11,19 +11,26 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/vfs.ico' }
     ]
   },
 
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+ loading: {
+    height: '5px',
+    color: '#172272' 
+  },
 
   /*
   ** Global CSS
   */
   css: [
+    '~/assets/scss/common.scss',
+    '~/static/fonts/icons/font-face.css',
+    '~/static/fonts/Helvetica/font-face.css',
+    '~/static/fonts/Kuoni-Feijoa/font-face.css'
   ],
 
   /*

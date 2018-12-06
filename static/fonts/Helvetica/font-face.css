@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    src: url('Helvetica-vfs-normal.eot');
+    /* IE9 Compat Modes */
+    src: local('Helvetica Normal'), local('Helvetica Normal'), url('Helvetica-vfs-normal.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  
+    url('Helvetica-vfs-normal.woff') format('woff'), /* Modern Browsers */
+    url('Helvetica-vfs-normal.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('Helvetica-vfs-normal.svg#Poppins') format('svg');
+    /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    src: url('Helvetica-vfs-Bold.eot');
+    /* IE9 Compat Modes */
+    src: local('Helvetica Bold'), local('Helvetica-Bold'), url('Helvetica-vfs-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+
+    url('Helvetica-vfs-Bold.woff') format('woff'), /* Modern Browsers */
+    url('Helvetica-vfs-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('Helvetica-vfs-Bold.svg#Poppins') format('svg');
+    /* Legacy iOS */
+}
