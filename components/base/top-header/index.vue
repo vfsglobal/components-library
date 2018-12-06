@@ -27,6 +27,7 @@ header {
   flex-direction: column;
   background: $blue;
   padding: 10px 0px;
+  box-shadow: $box_shadow;
 
     > .logo {
       width: $layout_left_width;

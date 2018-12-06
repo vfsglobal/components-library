@@ -1,8 +1,6 @@
 <template>
     <div class="screen-container">
-        <div class="component-list-wrapper">
-            <searchWrapper/>
-        </div>
+        <componentListWrapper />
         <div class="main-screen">
             <slot />
         </div>
@@ -10,12 +8,12 @@
 </template>
 
 <script>
-import searchWrapper from './search-wrapper.vue';
+import componentListWrapper from './component-list-wrapper.vue';
 
 export default {
     name: 'main-screen',
     components: {
-        searchWrapper
+        componentListWrapper
     }
 }
 </script>
@@ -25,17 +23,19 @@ export default {
 
 .screen-container {
   display: flex;
-  background: $orange;
-  flex: 1;
+  flex:1;
 
   > .component-list-wrapper {
     width: $layout_left_width;
-    padding: 20px 0px;
+     text-align: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: $box_shadow;
   }
 
    > .main-screen {
       flex: 1;
-      background: rgb(243, 220, 177);
     }
 }
 </style>

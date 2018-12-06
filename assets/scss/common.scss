@@ -37,7 +37,7 @@ video {
 
 body {
   background: #fff;
-  font-family: Roboto, sans-serif;
+  font-family: Helvetica, Kuoni-Feijoa;
   color: $content_color;
   font-size: 14px;
 }
@@ -91,7 +91,7 @@ button {
 
 @mixin selection() {
   $color: #fff;
-  $background: lighten($blue, 10);
+  $background: lighten($orange, 10);
 
   ::-moz-selection {
     color: $color;

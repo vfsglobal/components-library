@@ -1,9 +1,9 @@
 <template>
   <div class="container" id="app">
-    <top-header />
-    <main-screen>
+    <topHeader />
+    <mainScreen>
       <nuxt />
-    </main-screen>
+    </mainScreen>
   </div>
 </template>
 

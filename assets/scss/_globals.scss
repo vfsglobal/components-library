@@ -3,3 +3,14 @@ $orange: #E86020;
 $content_color: #666;
 
 $layout_left_width: 200px;
+$box_shadow:0px 0px 10px #333;
+
+@function transition_active($transition_name, $prefix: "") {
+    @return $prefix + "." + $transition_name + "-enter-active, " + $prefix + "." +
+      $transition_name + "-leave-active";
+  }
+  
+  @function transition_start($transition_name, $prefix: "") {
+    @return $prefix + "." + $transition_name + "-enter, " + $prefix + "." +
+      $transition_name + "-leave-to";
+  }
