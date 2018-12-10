@@ -34,10 +34,15 @@ video {
   padding: 0;
   border: 0;
 }
-
+div> .empty-message{
+  padding:10px 0px;
+  color: #b10e1e;
+  font-size:18px;
+  font-weight: bold;
+}
 body {
   background: #fff;
-  font-family: Helvetica, Kuoni-Feijoa;
+  font-family: Helvetica, sans-serif;
   color: $content_color;
   font-size: 14px;
 }

@@ -5,11 +5,11 @@
     </div>
     <div class="list-wrapper" :class="{empty : isEmpty}">
       <transition name="slide">
-        <ul v-if="!isEmpty">
-          <li v-for="(item, index) in filteredList" :key="index">
+        <transition-group name="list-slide" tag="ul" v-if="!isEmpty">
+          <li v-for="item in filteredList" :key="item" class="list-item">
             <a href="#">{{ item }}</a>
           </li>
-        </ul>
+        </transition-group>
         <div v-else class="empty-message">{{emptyMessage}}</div>
       </transition>
     </div>
@@ -30,7 +30,7 @@ export default {
     ...mapState('components-library', {
       list: state => state.list
     }),
-    filteredList () {
+    filteredList() {
       var filteredArr = [];
 
       for (var i = 0; i < this.list.length; i++) {
@@ -43,7 +43,7 @@ export default {
     isEmpty() {
       return this.filteredList.length == 0;
     }
-  }
+  },
 }
 </script>
 <style lang="scss">
@@ -66,18 +66,24 @@ export default {
       margin: 0;
       box-shadow: inset 2px 2px 5px #ccc;
       box-sizing: border-box;
-      outline:none;
+      outline: none;
     }
   }
+
   > .list-wrapper {
     flex: 1;
     background: #f5f5f5;
     position: relative;
+    transition: all 0.3s;
+    &.empty {
+      background: rgba(#b10e1e, 0.3);
+    }
     > ul {
       height: 100%;
       border-right: 2px solid transparent;
 
       > li {
+        transition: all 0.3s;
         > a {
           color: $orange;
           display: block;
@@ -85,10 +91,10 @@ export default {
           border-bottom: 2px solid #ccc;
         }
       }
+      .empty-message {
+        padding: 10px;
+      }
     }
-  }
-  > .empty-message {
-    padding: 10px 0px;
   }
 }
 
@@ -111,6 +117,15 @@ $transition_name: slide;
 }
 
 #{transition_start($transition_name, '.empty-message')} {
+  transition: opacity 0;
   left: 100%;
+}
+.list-slide-leave-active {
+  position: absolute;
+  transition: all 0.3s;
+}
+.list-slide-enter, .list-slide-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateX(-100%);
 }
 </style>
