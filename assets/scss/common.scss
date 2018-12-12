@@ -1,4 +1,4 @@
-@import "./assets/scss/globals";
+@import "globals/common";
 
 html,
 body,
@@ -109,7 +109,6 @@ button {
 }
 
 @include selection();
-
 
 .clearfix:after {
   content: "";

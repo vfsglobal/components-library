@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./assets/scss/globals";
+@import "./assets/scss/globals/base";
 
 .screen-container {
   display: flex;
@@ -31,7 +31,7 @@ export default {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    box-shadow: $box_shadow;
+    box-shadow: $layout_box_shadow;
   }
 
    > .main-screen {

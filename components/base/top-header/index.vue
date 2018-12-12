@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./assets/scss/globals";
+@import "./assets/scss/globals/base";
 
 header {
   font-size: 13px;
@@ -27,7 +27,7 @@ header {
   flex-direction: column;
   background: $blue;
   padding: 10px 0px;
-  box-shadow: $box_shadow;
+  box-shadow: $layout_box_shadow;
 
     > .logo {
       width: $layout_left_width;

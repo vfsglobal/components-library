@@ -3,7 +3,7 @@
     <div class="search-wrapper">
       <input typy="text" placeholder="Search Any Component" v-model="searchText">
     </div>
-    <div class="list-wrapper" :class="{empty : isEmpty}">
+    <div class="list-wrapper" :class="{empty : isEmpty}" id="custom-scroll">
       <transition name="slide">
         <transition-group name="list-slide" tag="ul" v-if="!isEmpty">
           <li v-for="item in filteredList" :key="item" class="list-item">
@@ -47,7 +47,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "./assets/scss/globals";
+@import "./assets/scss/globals/base";
 
 .component-list-wrapper {
   > .search-wrapper {
@@ -55,16 +55,16 @@ export default {
     box-sizing: border-box;
     position: relative;
     padding: 10px;
-    box-shadow: $box_shadow;
+    box-shadow: $layout_box_shadow;
     display: table;
     z-index: 1;
     > input {
       border-radius: 5px;
       padding: 7px;
-      border: 1px solid #aaa;
+      border: 1px solid $dark_border_color;
       width: 100%;
       margin: 0;
-      box-shadow: inset 2px 2px 5px #ccc;
+      box-shadow: inset 2px 2px 5px $light_border_color;
       box-sizing: border-box;
       outline: none;
     }
@@ -72,11 +72,31 @@ export default {
 
   > .list-wrapper {
     flex: 1;
-    background: #f5f5f5;
+    background: $light_border_color;
     position: relative;
     transition: all 0.3s;
+    overflow: hidden;
+    overflow-y: auto;
+
+    &#custom-scroll {
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 2px -2px 5px rgba($scroll_color, 0.1);
+        background-color: $light_border_color;
+      }
+
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba($scroll_color, 0.7);
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background: rgba($scroll_color, 0.9);
+      }
+    }
     &.empty {
-      background: rgba(#b10e1e, 0.3);
+      background: $validation_background_color;
     }
     > ul {
       height: 100%;
@@ -85,10 +105,10 @@ export default {
       > li {
         transition: all 0.3s;
         > a {
-          color: $orange;
+          color: $blue;
           display: block;
           padding: 10px;
-          border-bottom: 2px solid #ccc;
+          border-bottom: 2px solid $light_white_color;
         }
       }
       .empty-message {
@@ -96,36 +116,37 @@ export default {
       }
     }
   }
-}
 
-$transition_name: slide;
+  $transition_name: slide;
 
-#{transition_active($transition_name)} {
-  position: absolute;
-  left: 0%;
-  width: 100%;
-  overflow: hidden;
-  transition: left 0.5s;
-}
+  #{transition_active($transition_name)} {
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    overflow: hidden;
+    transition: left 0.5s;
+  }
 
-#{transition_active($transition_name, 'ul')} {
-  border-right: 2px solid #ccc !important;
-}
+  #{transition_active($transition_name, 'ul')} {
+    border-right: 2px solid $light_white_color !important;
+  }
 
-#{transition_start($transition_name, 'ul')} {
-  left: -100%;
-}
+  #{transition_start($transition_name, 'ul')} {
+    left: -100%;
+  }
 
-#{transition_start($transition_name, '.empty-message')} {
-  transition: opacity 0;
-  left: 100%;
-}
-.list-slide-leave-active {
-  position: absolute;
-  transition: all 0.3s;
-}
-.list-slide-enter, .list-slide-leave-to /* .list-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  transform: translateX(-100%);
+  #{transition_start($transition_name, '.empty-message')} {
+    transition: opacity 0;
+    left: 100%;
+  }
+  .list-slide-leave-active {
+    position: absolute;
+    transition: all 0.3s;
+  }
+  .list-slide-enter,
+  .list-slide-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 }
 </style>
