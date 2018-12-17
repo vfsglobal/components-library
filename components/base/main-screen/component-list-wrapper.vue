@@ -1,23 +1,42 @@
 <template>
   <div class="component-list-wrapper">
     <div class="search-wrapper">
-      <input typy="text" placeholder="Search Any Component" v-model="searchText">
+      <input
+        typy="text"
+        placeholder="Search Any Component"
+        v-model="searchText"
+      >
     </div>
-    <div class="list-wrapper" :class="{empty : isEmpty}" id="custom-scroll">
+    <div
+      class="list-wrapper"
+      :class="{empty : isEmpty}"
+      id="custom-scroll"
+    >
       <transition name="slide">
-        <transition-group name="list-slide" tag="ul" v-if="!isEmpty">
-          <li v-for="item in filteredList" :key="item" class="list-item">
-            <a href="#">{{ item }}</a>
+        <transition-group
+          name="list-slide"
+          tag="ul"
+          v-if="!isEmpty"
+        >
+          <li
+            v-for="item in filteredList"
+            :key="item"
+            class="list-item"
+          >
+            <nuxt-link :to="item.link">{{ item.text }}</nuxt-link>
           </li>
         </transition-group>
-        <div v-else class="empty-message">{{emptyMessage}}</div>
+        <div
+          v-else
+          class="empty-message"
+        >{{emptyMessage}}</div>
       </transition>
     </div>
   </div>
 
 </template>
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   data: function () {
@@ -27,18 +46,14 @@ export default {
     }
   },
   computed: {
-    ...mapState('components-library', {
-      list: state => state.list
+    ...mapGetters({
+      list: 'componentList'
     }),
+    lowerCasedSearchText() {
+      return this.searchText.toLowerCase();
+    },
     filteredList() {
-      var filteredArr = [];
-
-      for (var i = 0; i < this.list.length; i++) {
-        if (this.list[i].toLowerCase().indexOf(this.searchText.toLowerCase()) == 0)
-          filteredArr.push(this.list[i]);
-      }
-
-      return filteredArr;
+      return this.list.filter(item => item.text.toLowerCase().indexOf(this.lowerCasedSearchText) == 0);
     },
     isEmpty() {
       return this.filteredList.length == 0;
@@ -96,7 +111,7 @@ export default {
       }
     }
     &.empty {
-      background: $validation_background_color;
+      background: $invalid_back_color;
     }
     > ul {
       height: 100%;
@@ -119,7 +134,7 @@ export default {
 
           &:before {
             content: "";
-            color:white;
+            color: white;
             display: block;
             position: absolute;
             left: 0%;
@@ -128,18 +143,21 @@ export default {
             height: 0%;
             background: $blue;
             opacity: 0;
-            border-radius: 5px;
             z-index: -1;
             transition: all 0.3s;
           }
-          &.active:before,
-          &:hover:before {
+          &:hover:before,
+          &.nuxt-link-exact-active:before {
             height: 100%;
-            color:white;
+            color: white;
             opacity: 1;
           }
-          &:hover, &.active{
-            color:#fff;
+          &:hover,
+          &.nuxt-link-exact-active {
+            color: #fff;
+          }
+          &.nuxt-link-exact-active:before {
+            background: $orange;
           }
         }
       }
@@ -176,7 +194,7 @@ export default {
 
   .#{$list_li_transition_name}-leave-active {
     position: absolute;
-    transition: all 0.3s;
+    width: 100%;
   }
   #{transition_start($list_li_transition_name)} {
     opacity: 0;

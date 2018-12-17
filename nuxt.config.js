@@ -28,6 +28,7 @@ module.exports = {
   */
   css: [
     '~/assets/scss/common.scss',
+    '~/assets/scss/base.scss',
     '~/static/fonts/icons/font-face.css',
     '~/static/fonts/Helvetica/font-face.css',
     '~/static/fonts/Kuoni-Feijoa/font-face.css'
@@ -53,7 +54,9 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      
+      config.node = {
+        fs: 'empty'
+      };
     }
   }
 }

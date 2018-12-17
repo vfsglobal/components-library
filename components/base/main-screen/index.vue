@@ -36,6 +36,7 @@ export default {
 
    > .main-screen {
       flex: 1;
+      overflow: hidden;
     }
 }
 </style>
