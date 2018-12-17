@@ -3,13 +3,13 @@ import { getFileName, capitalFirst } from "~/utils";
 
 export const state = () => {
   return {
-    files: []
+    componentFiles: []
   };
 };
 
 export const getters = {
-  componentList({ files }) {
-    return files.map(file => {
+  componentList({ componentFiles }) {
+    return componentFiles.map(file => {
       var fileName = getFileName(file);
 
       return {
@@ -21,13 +21,13 @@ export const getters = {
 };
 
 export const mutations = {
-  files(state, files) {
-    state.files = files;
+  componentFiles(state, files) {
+    state.componentFiles = files;
   }
 };
 
 export const actions = {
   nuxtServerInit({ commit }) {
-    commit("files", readdirSync("components/library"));
+    commit("componentFiles", readdirSync("components/library"));
   }
 };
