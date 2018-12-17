@@ -36,6 +36,8 @@ export default {
 
    > .main-screen {
       flex: 1;
+      text-align: center;
+      position: relative;
     }
 }
 </style>
