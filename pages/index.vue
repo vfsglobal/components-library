@@ -1,13 +1,18 @@
 <template>
-  <section>
+  
     <h1>Welcome to Components Library</h1>
-  </section>
+  
 </template>
 <style lang="scss">
 @import "./assets/scss/globals/base";
 
-section >h1{
+h1{
+   margin: 0;
   font-size: 30px;
-  text-align: center;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translateY(-50%);
+   transform: translateX(-50%);
 }
 </style>
