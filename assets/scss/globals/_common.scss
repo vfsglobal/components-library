@@ -7,8 +7,8 @@ $light_border_color: #E0E5EA;
 $dark_border_color: #5F717D;
 $scroll_color:#808080;
 
-$validation_color: #b10e1e;
-$validation_background_color: rgba($validation_color, 0.3);
+$invalid_color: #b10e1e;
+$invalid_back_color: rgba($invalid_color, 0.3);
 
 @function transition_active($transition_name, $prefix: "") {
   @return $prefix + "." + $transition_name + "-enter-active, " + $prefix + "." +

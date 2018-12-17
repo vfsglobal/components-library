@@ -36,6 +36,10 @@ export default {
 
    > .main-screen {
       flex: 1;
+<<<<<<< HEAD
+=======
+      overflow: hidden;
+>>>>>>> 77397f4cd55a03b76d0d4341a2f1a869de54de08
     }
 }
 </style>
