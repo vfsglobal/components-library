@@ -103,12 +103,44 @@ export default {
       border-right: 2px solid transparent;
 
       > li {
+        display: block;
         transition: all 0.3s;
         > a {
-          color: $blue;
-          display: block;
+          display: table;
+          position: relative;
+          width: 100%;
+          color: #031b30;
           padding: 10px;
+          box-sizing: border-box;
+          z-index: 1;
+          transition: all 0.3s;
+
           border-bottom: 2px solid $light_white_color;
+
+          &:before {
+            content: "";
+            color:white;
+            display: block;
+            position: absolute;
+            left: 0%;
+            bottom: 0%;
+            width: 100%;
+            height: 0%;
+            background: $blue;
+            opacity: 0;
+            border-radius: 5px;
+            z-index: -1;
+            transition: all 0.3s;
+          }
+          &.active:before,
+          &:hover:before {
+            height: 100%;
+            color:white;
+            opacity: 1;
+          }
+          &:hover, &.active{
+            color:#fff;
+          }
         }
       }
       .empty-message {
@@ -117,9 +149,9 @@ export default {
     }
   }
 
-  $transition_name: slide;
+  $main_transition_name: slide;
 
-  #{transition_active($transition_name)} {
+  #{transition_active($main_transition_name)} {
     position: absolute;
     left: 0%;
     width: 100%;
@@ -127,24 +159,26 @@ export default {
     transition: left 0.5s;
   }
 
-  #{transition_active($transition_name, 'ul')} {
+  #{transition_active($main_transition_name, 'ul')} {
     border-right: 2px solid $light_white_color !important;
   }
 
-  #{transition_start($transition_name, 'ul')} {
+  #{transition_start($main_transition_name, 'ul')} {
     left: -100%;
   }
 
-  #{transition_start($transition_name, '.empty-message')} {
+  #{transition_start($main_transition_name, '.empty-message')} {
     transition: opacity 0;
     left: 100%;
   }
-  .list-slide-leave-active {
+
+  $list_li_transition_name: list-slide;
+
+  .#{$list_li_transition_name}-leave-active {
     position: absolute;
     transition: all 0.3s;
   }
-  .list-slide-enter,
-  .list-slide-leave-to {
+  #{transition_start($list_li_transition_name)} {
     opacity: 0;
     transform: translateX(-100%);
   }
