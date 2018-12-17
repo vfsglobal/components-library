@@ -1,18 +1,15 @@
 <template>
-  
+  <screen-container class="center">
     <h1>Welcome to Components Library</h1>
-  
+  </screen-container>
 </template>
-<style lang="scss">
-@import "./assets/scss/globals/base";
 
-h1{
-   margin: 0;
-  font-size: 30px;
-  position: absolute;
-  top:50%;
-  left:50%;
-  transform: translateY(-50%);
-   transform: translateX(-50%);
+<script>
+import screenContainer from '~/components/base/screen-container.vue';
+
+export default {
+  components: {
+    screenContainer
+  }
 }
-</style>
+</script>

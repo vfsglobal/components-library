@@ -1,10 +1,16 @@
 <template>
-    <div>Test Input</div>
+     <screen-container class="center">
+    <h1>Test Input Page</h1>
+  </screen-container>
 </template>
 
 <script>
-export default {
+import screenContainer from '~/components/base/screen-container.vue';
 
+export default {
+  components: {
+    screenContainer
+  }
 }
 </script>
 

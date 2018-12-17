@@ -27,7 +27,6 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '~/assets/scss/common.scss',
     '~/assets/scss/base.scss',
     '~/static/fonts/icons/font-face.css',
     '~/static/fonts/Helvetica/font-face.css',

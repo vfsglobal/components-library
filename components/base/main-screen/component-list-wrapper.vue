@@ -2,7 +2,7 @@
   <div class="component-list-wrapper">
     <div class="search-wrapper">
       <input
-        typy="text"
+        type="text"
         placeholder="Search Any Component"
         v-model="searchText"
       >
@@ -20,7 +20,7 @@
         >
           <li
             v-for="item in filteredList"
-            :key="item"
+            :key="item.text"
             class="list-item"
           >
             <nuxt-link :to="item.link">{{ item.text }}</nuxt-link>
@@ -37,6 +37,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex';
+
 
 export default {
   data: function () {

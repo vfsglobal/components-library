@@ -29,7 +29,6 @@ export default {
 header {
   font-size: 13px;
   display: flex;
-  flex-direction: column;
   background: $blue;
   padding: 10px 0px;
   box-shadow: $layout_box_shadow;

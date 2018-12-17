@@ -1,11 +1,9 @@
 import { readdirSync } from "fs";
 import { getFileName, capitalFirst } from "~/utils";
 
-export const state = () => {
-  return {
-    files: []
-  };
-};
+export const state = () => ({
+  files: []
+});
 
 export const getters = {
   componentList({ files }) {
@@ -14,7 +12,7 @@ export const getters = {
 
       return {
         text: capitalFirst(fileName),
-        link: '/' + fileName
+        link: "/" + fileName
       };
     });
   }
