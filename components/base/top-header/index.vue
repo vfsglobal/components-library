@@ -30,7 +30,6 @@ header {
   font-size: 13px;
   display: flex;
   background: $blue;
-  padding: 10px 0px;
   box-shadow: $layout_box_shadow;
 
   > .logo {

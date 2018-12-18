@@ -1,5 +1,7 @@
-import { readdirSync } from "fs";
+import { readdirSync, statSync } from "fs";
 import { getFileName, capitalFirst } from "~/utils";
+
+var componentFilePath = "components/library";
 
 export const state = () => {
   return {
@@ -9,10 +11,12 @@ export const state = () => {
 
 export const getters = {
   componentList({ componentFiles }) {
-    return componentFiles.map(file => {
-      var fileName = getFileName(file);
+    return componentFiles.map(fileObj => {
+      var fileName = getFileName(fileObj.fileName);
 
       return {
+        ...fileObj,
+        name: fileName,
         text: capitalFirst(fileName),
         link: "/" + fileName
       };
@@ -28,6 +32,14 @@ export const mutations = {
 
 export const actions = {
   nuxtServerInit({ commit }) {
-    commit("componentFiles", readdirSync("components/library"));
+    var fileNames = readdirSync(componentFilePath);
+
+    commit(
+      "componentFiles",
+      fileNames.map(fileName => ({
+        fileName,
+        modifiedTime: statSync(componentFilePath + "/" + fileName).mtime
+      }))
+    );
   }
 };
