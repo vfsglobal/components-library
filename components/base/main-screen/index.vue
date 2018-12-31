@@ -23,20 +23,20 @@ export default {
 
 .screen-container {
   display: flex;
-  flex:1;
+  flex: 1;
 
   > .component-list-wrapper {
     width: $layout_left_width;
-     text-align: center;
+    text-align: center;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     box-shadow: $layout_box_shadow;
   }
 
-   > .main-screen {
-      flex: 1;
-      overflow: hidden;
-    }
+  > .main-screen {
+    flex: 1;
+    overflow: hidden;
+  }
 }
 </style>

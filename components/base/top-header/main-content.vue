@@ -4,13 +4,13 @@
       <div class="heading-button" v-if="currentComponent">
         <h3 class="big-heading">{{currentComponent.text}}</h3>
         <h5 class="small-heading">Updated on <br>
-          <h4 class="heading-date">{{currentComponent.modifiedTime}}</h4>
+          <h4 class="heading-date">{{currentComponent.modifiedTime | dateFormat}}</h4>
         </h5>
       </div>
     </transition>
-    <div class="download-button">
-      <h3 class="big-heading">Download</h3>
-    </div>
+    <transition name="slide-up">
+      <a href="#" class="download-button" v-if="currentComponent">Download</a>
+    </transition>
   </div>
 </template>
 
@@ -50,15 +50,15 @@ header .main-content-wrapper {
   .download-button {
     position: absolute;
     bottom: 0px;
-    color: #fff;
     border-radius: 4px 4px 0 0;
-    padding: $common_padding;
   }
   > .heading-button {
-    background: $light_blue_color;
+    background: $light_blue;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: $common_padding;
+    color: #FFF;
 
     & > .big-heading {
       float: left;
@@ -73,19 +73,19 @@ header .main-content-wrapper {
 
       & > .heading-date {
         margin-top: 5px;
-        font-weight: bold;
+        font-size: 1.2em;
       }
     }
   }
   > .download-button {
     background: $orange;
     right: 20px;
-
-    & > .big-heading {
-      display: block;
-      font-size: 20px;
-      cursor: pointer;
-    }
+    display: block;
+    font-size: 18px;
+    cursor: pointer;
+    padding: $common_padding 30px;
+    color: #FFF;
+    box-sizing: border-box;
   }
 
   $main_transition_name: slide-up;

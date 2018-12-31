@@ -1,4 +1,42 @@
 @import 'common';
 
+$basic_direction_details: (
+	horizontal: left right,
+	vertical: top bottom
+);
+
 $layout_left_width: 200px;
 $layout_box_shadow: 0px 0px 10px #333;
+
+@mixin create_arrow($tip_direction, $tip_length, $broadness, $color) {
+	$transparent_border: $broadness / 2 solid transparent;
+
+	$tip_direction_details: (
+		left: (
+			color_border: right,
+			transparent_border: vertical
+		),
+		right: (
+			color_border: left,
+			transparent_border: vertical
+		),
+		top: (
+			color_border: bottom,
+			transparent_border: horizontal
+		),
+		bottom: (
+			color_border: top,
+			transparent_border: horizontal
+		)
+	);
+
+	$cur_direction_details: map-get($tip_direction_details, $tip_direction);
+	
+	border-#{map-get($cur_direction_details, color_border)}: $tip_length solid $color;
+
+	$transparent_border_directions: map-get($basic_direction_details, map-get($cur_direction_details, transparent_border));
+
+	@each $border_direction in $transparent_border_directions {
+		border-#{$border_direction}: $transparent_border;
+	}
+}
