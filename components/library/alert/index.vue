@@ -1,5 +1,5 @@
 <template>
-    <component :type="type" :class="type" class="vfs-alert" :is="typeDetails" :title="title">
+    <component :type="type" :class="type" class="vfs-alert" :is="typeDetails" v-bind="attrs">
         <slot />
     </component>
 </template>
@@ -10,7 +10,7 @@ import titleDesc from './title-desc.vue';
 
 import { generateTypeMixin } from '~/components/mixins/general';
 
-import { allTypeComponents, defaultType, allComponentProps } from './component-details';
+import { allTypeComponents, defaultType, allComponentProps, componentDetails } from './component-details';
 
 export default {
     name: 'vfs-alert',
@@ -22,7 +22,19 @@ export default {
         titleDesc
     },
 
-    props: allComponentProps
+    props: allComponentProps,
+
+    computed: {
+        attrs() {
+            var curProps = componentDetails[this.typeDetails].props,
+                attrs = {};
+            
+            for(var propName in curProps)
+                attrs[propName] = this[propName];
+            
+            return attrs;
+        }
+    }
 }
 </script>
 

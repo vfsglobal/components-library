@@ -27,7 +27,7 @@ export const allTypeComponents = (() => {
     }
 	
 	return obj;
-})()
+})();
 
 export const allComponentProps = (() => {
     var props = {},
