@@ -1,21 +1,28 @@
-$blue: #00305e;
+$blue: #06345b;
+$light_blue:#2F577B;
+$dark_blue:#031b30;
 $orange: #e86020;
+$dark_orange:#d25419;
 $content_color: #666;
 
-$light_white_color:#ccc;
-$light_border_color: #E0E5EA;
-$dark_border_color: #5F717D;
+$light_grey:#ccc;
+$dark_grey: #5F717D;
+$off_white: #E0E5EA;
+
 $scroll_color:#808080;
+$common_padding:10px;
 
 $invalid_color: #b10e1e;
 $invalid_back_color: rgba($invalid_color, 0.3);
 
-@function transition_active($transition_name, $prefix: "") {
-  @return $prefix + "." + $transition_name + "-enter-active, " + $prefix + "." +
-    $transition_name + "-leave-active";
+$general_component_max_width: 660px;
+
+@function transition_active($transition_name, $prefix: "", $suffix: "") {
+  @return $prefix + "." + $transition_name + "-enter-active" + $suffix + ", " + $prefix + "." +
+    $transition_name + "-leave-active" + $suffix;
 }
 
-@function transition_start($transition_name, $prefix: "") {
-  @return $prefix + "." + $transition_name + "-enter, " + $prefix + "." +
-    $transition_name + "-leave-to";
+@function transition_start($transition_name, $prefix: "", $suffix: "") {
+  @return $prefix + "." + $transition_name + "-enter" + $suffix + ", " + $prefix + "." +
+    $transition_name + "-leave-to" + $suffix;
 }

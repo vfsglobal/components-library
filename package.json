@@ -5,14 +5,14 @@
   "author": "Mahesh Shah",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "node --inspect node_modules/nuxt/bin/nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
-    "dev-debug": "node --inspect node_modules/nuxt/bin/nuxt"
+    "generate": "nuxt generate"
   },
   "dependencies": {
     "cross-env": "^5.2.0",
+    "lodash.clonedeep": "^4.5.0",
     "moment": "^2.23.0",
     "nuxt": "^2.3.4"
   },

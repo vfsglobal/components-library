@@ -1,8 +1,15 @@
+@import "globals/base";
+@import "common.scss";
+
 .page-enter-active,
 .page-leave-active {
-  transition: all 0.5s;
+  transition: all $page_transition_duration;
 }
 .page-enter,
 .page-leave-to {
   transform: translateX(-100%);
+}
+
+h1 {
+  font-size: 30px;
 }

@@ -27,9 +27,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '~/assets/scss/common.scss',
     '~/assets/scss/base.scss',
-    '~/static/fonts/icons/font-face.css',
     '~/static/fonts/Helvetica/font-face.css',
     '~/static/fonts/Kuoni-Feijoa/font-face.css'
   ],
@@ -38,6 +36,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/date-format'
   ],
 
   /*

@@ -1,35 +1,16 @@
 <template>
   <div class="component-list-wrapper">
     <div class="search-wrapper">
-      <input
-        typy="text"
-        placeholder="Search Any Component"
-        v-model="searchText"
-      >
+      <input type="text" placeholder="Search Any Component" v-model="searchText">
     </div>
-    <div
-      class="list-wrapper"
-      :class="{empty : isEmpty}"
-      id="custom-scroll"
-    >
+    <div class="list-wrapper" :class="{empty : isEmpty}" id="custom-scroll">
       <transition name="slide">
-        <transition-group
-          name="list-slide"
-          tag="ul"
-          v-if="!isEmpty"
-        >
-          <li
-            v-for="item in filteredList"
-            :key="item"
-            class="list-item"
-          >
+        <transition-group name="list-slide" tag="ul" v-if="!isEmpty">
+          <li v-for="item in filteredList" :key="item.text" class="list-item">
             <nuxt-link :to="item.link">{{ item.text }}</nuxt-link>
           </li>
         </transition-group>
-        <div
-          v-else
-          class="empty-message"
-        >{{emptyMessage}}</div>
+        <div v-else class="empty-message">{{emptyMessage}}</div>
       </transition>
     </div>
   </div>
@@ -65,6 +46,15 @@ export default {
 @import "./assets/scss/globals/base";
 
 .component-list-wrapper {
+  display: flex;
+  position: relative;
+  width: $layout_left_width;
+  text-align: center;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: $layout_box_shadow;
+  z-index: 1;
+
   > .search-wrapper {
     width: 100%;
     box-sizing: border-box;
@@ -76,10 +66,10 @@ export default {
     > input {
       border-radius: 5px;
       padding: 7px;
-      border: 1px solid $dark_border_color;
+      border: 1px solid $dark_grey;
       width: 100%;
       margin: 0;
-      box-shadow: inset 2px 2px 5px $light_border_color;
+      box-shadow: inset 2px 2px 5px $off_white;
       box-sizing: border-box;
       outline: none;
     }
@@ -87,7 +77,7 @@ export default {
 
   > .list-wrapper {
     flex: 1;
-    background: $light_border_color;
+    background: $off_white;
     position: relative;
     transition: all 0.3s;
     overflow: hidden;
@@ -96,7 +86,7 @@ export default {
     &#custom-scroll {
       &::-webkit-scrollbar-track {
         box-shadow: inset 2px -2px 5px rgba($scroll_color, 0.1);
-        background-color: $light_border_color;
+        background-color: $off_white;
       }
 
       &::-webkit-scrollbar {
@@ -130,11 +120,11 @@ export default {
           z-index: 1;
           transition: all 0.3s;
 
-          border-bottom: 2px solid $light_white_color;
+          border-bottom: 2px solid $light_grey;
 
           &:before {
             content: "";
-            color: white;
+            color: #fff;
             display: block;
             position: absolute;
             left: 0%;
@@ -149,7 +139,7 @@ export default {
           &:hover:before,
           &.nuxt-link-exact-active:before {
             height: 100%;
-            color: white;
+            color: #fff;
             opacity: 1;
           }
           &:hover,
@@ -178,7 +168,7 @@ export default {
   }
 
   #{transition_active($main_transition_name, 'ul')} {
-    border-right: 2px solid $light_white_color !important;
+    border-right: 2px solid $light_grey !important;
   }
 
   #{transition_start($main_transition_name, 'ul')} {
