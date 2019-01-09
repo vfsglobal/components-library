@@ -49,11 +49,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.vfs-icon-right-arrow:before {
+.vfs-icon-close:before {
   content: "\e900";
 }
-.vfs-icon-arrow-up-right:before {
+.vfs-icon-right-arrow:before {
   content: "\e901";
+}
+.vfs-icon-arrow-up-right:before {
+  content: "\e902";
 }
 .vfs-icon-upload-circle-fill:before {
   content: "\e910";
@@ -67,7 +70,7 @@ export default {
 .vfs-icon-info-fill:before {
   content: "\e913";
 }
-.vfs-icon-close-fill:before {
+.vfs-icon-close-circle-fill:before {
   content: "\e914";
 }
 .vfs-icon-checkmark-fill:before {
@@ -115,7 +118,7 @@ export default {
 .vfs-icon-checkmark:before {
   content: "\e923";
 }
-.vfs-icon-close:before {
+.vfs-icon-close-circle:before {
   content: "\e924";
 }
 .vfs-icon-upload-rect-fill:before {
@@ -253,6 +256,5 @@ export default {
 .vfs-icon-service-walk-in-without-appointment:before {
   content: "\e95e";
 }
-
 
 </style>

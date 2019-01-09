@@ -3,6 +3,15 @@ var defaultTypeMixinOptions = {
   defaultTypeDetails: null
 };
 
+export const typeProp = {
+  props: {
+    type: {
+      type: String,
+      default: 'default'
+    }
+  }
+};
+
 export function generateTypeMixin(allTypeDetails, options) {
   if (typeof options == "string") {
     options = {

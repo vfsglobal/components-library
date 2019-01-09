@@ -1,7 +1,7 @@
 <template>
   <div class="main-content-wrapper">
-    <transition name="slide-up">
-      <div class="heading-button" v-if="currentComponent">
+    <transition name="slide-up" mode="out-in">
+      <div class="heading-button" v-if="currentComponent" :key="currentComponent.text">
         <h3 class="big-heading">{{currentComponent.text}}</h3>
         <h5 class="small-heading">Updated on <br>
           <h4 class="heading-date">{{currentComponent.modifiedTime | dateFormat}}</h4>
@@ -91,7 +91,7 @@ header .main-content-wrapper {
   $main_transition_name: slide-up;
 
   #{transition_active($main_transition_name)} {
-    transition: all 0.5s;
+    transition: all $page_transition_duration;
   }
 
   #{transition_start($main_transition_name)} {

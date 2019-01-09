@@ -15,22 +15,23 @@ export default {
 <style lang="scss">
 .screen-container {
   display: flex;
+  position: relative;
   height: 100%;
 
   &.center {
-      align-items: center;
+    align-items: center;
   }
 
   > .main-screen-content {
-      width: 100%;
-      max-height: 100%;
-      overflow: auto;
+    width: 100%;
+    max-height: 100%;
+    overflow: auto;
 
-      > * {
-          display: table;
-          margin-left: auto;
-          margin-right: auto;
-      }
+    > * {
+      display: table;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
 </style>

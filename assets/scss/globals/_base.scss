@@ -8,6 +8,8 @@ $basic_direction_details: (
 $layout_left_width: 200px;
 $layout_box_shadow: 0px 0px 10px #333;
 
+$page_transition_duration: 0.5s;
+
 @mixin create_arrow($tip_direction, $tip_length, $broadness, $color) {
 	$transparent_border: $broadness / 2 solid transparent;
 

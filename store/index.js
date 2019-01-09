@@ -13,7 +13,7 @@ export const getters = {
   componentList({ componentFiles }) {
     return componentFiles.map(fileObj => {
       var fileName = getFileName(fileObj.fileName);
-
+      
       return {
         ...fileObj,
         name: fileName,
@@ -33,7 +33,7 @@ export const mutations = {
 export const actions = {
   nuxtServerInit({ commit }) {
     var fileNames = readdirSync(componentFilePath);
-
+    
     commit(
       "componentFiles",
       fileNames.map(fileName => ({

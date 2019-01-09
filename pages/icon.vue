@@ -11,6 +11,8 @@
 import screenContainer from '~/components/base/screen-container.vue';
 import vfsIcon from '~/components/library/icon.vue';
 
+import {mapState} from 'vuex';
+
 export default {
   components: {
     screenContainer,
@@ -19,12 +21,14 @@ export default {
 
   data() {
     return {
-      allIcons: ['upload-rect-fill', 'upload-circle-fill', 'cart'],
       selectedIconIndex: 0
     };
   },
 
   computed: {
+    ...mapState('icons', {
+      allIcons: state => state.list
+    }),
     selectedIcon() {
       return this.allIcons[this.selectedIconIndex];
     }

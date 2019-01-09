@@ -1,0 +1,17 @@
+@mixin alert-box($color, $include_icon: true) {
+  border-left: 4px solid $color;
+  background-color: rgba($color, 0.05);
+
+  @if ($include_icon) {
+    > i {
+      color: $color;
+    }
+  }
+}
+@mixin alert-link($color) {
+  > a,
+  a:hover {
+    color: $color;
+    border-bottom-color: $color;
+  }
+}

@@ -36,9 +36,10 @@ export default {
 @import "./assets/scss/globals/common";
 
 .vfs-button {
+  display: inline-block;
   position: relative;
   min-width: 120px;
-  padding: 15px;
+  padding: 16px;
   border-radius: 8px;
   background-color: $orange;
   font: inherit;

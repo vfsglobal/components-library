@@ -15,12 +15,14 @@ $common_padding:10px;
 $invalid_color: #b10e1e;
 $invalid_back_color: rgba($invalid_color, 0.3);
 
-@function transition_active($transition_name, $prefix: "") {
-  @return $prefix + "." + $transition_name + "-enter-active, " + $prefix + "." +
-    $transition_name + "-leave-active";
+$general_component_max_width: 660px;
+
+@function transition_active($transition_name, $prefix: "", $suffix: "") {
+  @return $prefix + "." + $transition_name + "-enter-active" + $suffix + ", " + $prefix + "." +
+    $transition_name + "-leave-active" + $suffix;
 }
 
-@function transition_start($transition_name, $prefix: "") {
-  @return $prefix + "." + $transition_name + "-enter, " + $prefix + "." +
-    $transition_name + "-leave-to";
+@function transition_start($transition_name, $prefix: "", $suffix: "") {
+  @return $prefix + "." + $transition_name + "-enter" + $suffix + ", " + $prefix + "." +
+    $transition_name + "-leave-to" + $suffix;
 }
